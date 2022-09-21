@@ -86,11 +86,21 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hrms',
-        'HOST':'127.0.0.1',
-        'USER':'root',
-        'PASSWORD':'',
+        'HOST':'hrms.cl93y5htpupd.us-east-1.rds.amazonaws.com',
+        'USER':'aws_user',
+        'PASSWORD':'Bait3273',
         'PORT':'3306',    }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'hrms',
+#         'HOST':'127.0.0.1',
+#         'USER':'root',
+#         'PASSWORD':'',
+#         'PORT':'3306',    }
+# }
 AUTH_USER_MODEL = 'hrms.User'
 #Production
 
