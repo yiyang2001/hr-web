@@ -141,7 +141,7 @@ USE_TZ = True
 # AWS S3 Settings
 # AWS_ACCESS_KEY_ID = ''
 # AWS_SECRET_ACCESS_KEY = ''
-AWS_STORAGE_BUCKET_NAME = 'teoyiyang-bucket'
+AWS_STORAGE_BUCKET_NAME = 'teoyiyangs-bucket'
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 AWS_DEFAULT_ACL = 'public-read'
 AWS_S3_OBJECT_PARAMETER = {
@@ -157,7 +157,7 @@ AWS_HEADERS = {
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR/'static']
+# STATICFILES_DIRS = [BASE_DIR/'static']
 MEDIA_URL = '/media/' #This is just for url i.e https://l.me/media/l.jpg
 MEDIA_ROOT = BASE_DIR/'media'  # This is the folder the image will be uploaded
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
