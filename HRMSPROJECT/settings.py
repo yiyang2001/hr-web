@@ -158,8 +158,8 @@ AWS_HEADERS = {
 
 STATIC_URL = '/static/'
 # STATICFILES_DIRS = [BASE_DIR/'static']
-# MEDIA_URL = '/media/' #This is just for url i.e https://l.me/media/l.jpg
-MEDIA_ROOT = BASE_DIR/'media'  # This is the folder the image will be uploaded
+MEDIA_URL = '/media/' #This is just for url i.e https://l.me/media/l.jpg
+# MEDIA_ROOT = BASE_DIR/'media'  # This is the folder the image will be uploaded
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
