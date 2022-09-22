@@ -167,7 +167,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 # STATIC_URL = f'http://{AWS_S3_CUSTOM_DOMAIN}/static/'
 MEDIA_URL = f'http://{AWS_S3_CUSTOM_DOMAIN}/media/'  # This is just for url i.e https://l.me/media/l.jpg
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # This is the folder the image will be uploaded
 LOGIN_REDIRECT_URL = 'hrms:dashboard'
 
