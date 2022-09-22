@@ -11,14 +11,13 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+
 # import django_heroku
 # import dj_database_url
 
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -30,7 +29,6 @@ SECRET_KEY = '#=a7f+o=$5#uln!f9$)d)ax225+(tq&5i613&l^cg2h_$pjg_v'
 DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
-
 
 # Application definition
 
@@ -76,11 +74,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'HRMSPROJECT.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-#Development
+# Development
 
 DATABASES = {
     'default': {
@@ -96,17 +93,16 @@ DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.mysql',
 #         'NAME': 'hrms',
-#         'HOST':'127.0.0.1',
-#         'USER':'root',
-#         'PASSWORD':'',
-#         'PORT':'3306',    }
+#         'HOST': '127.0.0.1',
+#         'USER': 'root',
+#         'PASSWORD': '',
+#         'PORT': '3306', }
 # }
 AUTH_USER_MODEL = 'hrms.User'
-#Production
+# Production
 
 
-
-#this will update settings datbase configuration automatically from heroku and let us local config also
+# this will update settings datbase configuration automatically from heroku and let us local config also
 
 
 # Password validation
@@ -127,7 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
@@ -141,16 +136,35 @@ USE_L10N = True
 
 USE_TZ = True
 
+# AWS S3 Settings
+# AWS_ACCESS_KEY_ID = ''
+# AWS_SECRET_ACCESS_KEY = ''
+AWS_STORAGE_BUCKET_NAME = 's3-hr-bucket'
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+AWS_DEFAULT_ACL = 'public-read'
+AWS_S3_OBJECT_PARAMETER = {
+    'CacheControl': 'max-age=86400'
+}
+AWS_LOCATION = 'static'
+AWS_QUERYSTRING_AUTH = False
+AWS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+# STATIC_URL = '/static/'
+# MEDIA_URL = '/media/' #This is just for url i.e https://l.me/media/l.jpg
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-LOGIN_REDIRECT_URL = 'hrms:dashboard'
-#LOGIN_URL = 'hrms:login'
-MEDIA_URL = '/media/' #This is just for url i.e https://l.me/media/l.jpg
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #This is the folder the image will be uploaded
 
+DEFAULT_FILE_STORAGE = 'storages.backend.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backend.s3boto3.S3StaticStorage'
+STATIC_URL = f'http://{AWS_S3_CUSTOM_DOMAIN}/static/'
+MEDIA_URL = f'http://{AWS_S3_CUSTOM_DOMAIN}/media/'  # This is just for url i.e https://l.me/media/l.jpg
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # This is the folder the image will be uploaded
+LOGIN_REDIRECT_URL = 'hrms:dashboard'
+
+# LOGIN_URL = 'hrms:login'
 # django_heroku.settings(locals())
