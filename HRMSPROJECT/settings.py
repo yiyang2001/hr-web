@@ -163,10 +163,10 @@ STATIC_URL = '/static/'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 # STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 # STATIC_URL = f'http://{AWS_S3_CUSTOM_DOMAIN}/static/'
-# MEDIA_URL = f'http://{AWS_S3_CUSTOM_DOMAIN}/media/'  # This is just for url i.e https://l.me/media/l.jpg
+MEDIA_URL = f'http://{AWS_S3_CUSTOM_DOMAIN}/media/'  # This is just for url i.e https://l.me/media/l.jpg
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')  # This is the folder the image will be uploaded
 LOGIN_REDIRECT_URL = 'hrms:dashboard'
