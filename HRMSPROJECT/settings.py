@@ -85,7 +85,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hrms',
-        'HOST':'hrms.c8ze40mty7gy.us-east-1.rds.amazonaws.com',
+        'HOST':'hrms.cl93y5htpupd.us-east-1.rds.amazonaws.com',
         'USER':'aws_user',
         'PASSWORD':'Bait3273',
         'PORT':'3306',    }
