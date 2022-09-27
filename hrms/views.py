@@ -101,7 +101,7 @@ class Employee_Delete(LoginRequiredMixin,DeleteView):
     def get (self, request,pk):
      employee = Employee.objects.get(pk=pk)
      employee.delete()
-     return redirect('hrms:employee', permanent=True)
+     return redirect('hrms:employee_all', permanent=True)
 
 class Employee_Kin_Add (LoginRequiredMixin,CreateView):
     model = Kin
