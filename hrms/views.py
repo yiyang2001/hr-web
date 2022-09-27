@@ -98,14 +98,17 @@ class Employee_Update(LoginRequiredMixin,UpdateView):
     
     
 class Employee_Delete(LoginRequiredMixin,DeleteView):
-    pass
+    def get (self, request,pk):
+     employee = Employee.objects.get(pk=pk)
+     employee.delete()
+     return redirect('hrms:employee', permanent=True)
 
 class Employee_Kin_Add (LoginRequiredMixin,CreateView):
     model = Kin
     form_class = KinForm
     template_name = 'hrms/employee/kin_add.html'
     login_url = 'hrms:login'
-   
+
 
     def get_context_data(self):
         context = super().get_context_data()
