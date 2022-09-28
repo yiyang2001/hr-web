@@ -2,6 +2,17 @@
 {% load static %}
 {% block title %} All Employees | ITSC-HRMS {% endblock title %}
       <!--  MAIN BODY START HERE -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
+        <script>
+            $('#employees123').DataTable({
+               "aaSorting": [[1,'asc']],
+               dom: 'Bfrtip',
+               buttons: [
+                   'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+          });
+        </script>
           {% block content %}
 
       <div class="main-panel">
@@ -111,8 +122,6 @@
         </div>
       </div>
         {% block noty %}
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
         <script>
           {% if messages %}
             {% for message in messages  %}
