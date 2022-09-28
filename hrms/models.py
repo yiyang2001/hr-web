@@ -70,7 +70,7 @@ class Attendance (models.Model):
     staff = models.ForeignKey(Employee, on_delete=models.CASCADE)
 
     def save(self,*args, **kwargs):
-        self.first_in = timezone.localtime()
+        # self.first_in = timezone.localtime()
         super(Attendance,self).save(*args, **kwargs)
     
     def __str__(self):
