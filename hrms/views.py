@@ -22,6 +22,9 @@ class Index(TemplateView):
    template_name = 'hrms/home/home.html'
    # redirect('hrms:login')
 
+class Landing(TemplateView):
+   template_name = 'hrms/home/landing.html'
+
 #   Authentication
 class Register (CreateView):
     model = get_user_model()

@@ -5,9 +5,10 @@ app_name = 'hrms'
 urlpatterns = [
 
 # Authentication Routes
-    path('', redirect_view),
-    # path('', views.Index.as_view(), name='index'),
+#     path('', redirect_view),
+#     path('', views.Index.as_view(), name='index'),
     # path('', views.Login_View.as_view(), name='login'),
+    path('', views.Landing.as_view(), name='landing'),
     path('register/', views.Register.as_view(), name='reg'),
     path('login/', views.Login_View.as_view(), name='login'),
     path('logout/', views.Logout_View.as_view(), name='logout'),
