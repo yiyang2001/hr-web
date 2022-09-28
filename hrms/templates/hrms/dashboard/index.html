@@ -135,14 +135,24 @@
 
 <script>
     $(document).ready(function () {
-    $('#employee_table').DataTable( {
-        "aaSorting": [[1,'asc']],
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    }
+      $('#employee_table').DataTable( {
+          "aaSorting": [[1,'asc']],
+          dom: 'Bfrtip',
+          buttons: [
+              'copy', 'csv', 'excel', 'pdf', 'print'
+          ]
+      }
+            <!-- Added this script to see if the page would recognize the items within block -->
+      <script>
+      window.onload = function() {
+          if (window.jQuery) {
+              // jQuery is loaded
+              alert("Yeah!");
+          } else {
+              // jQuery is not loaded
+              alert("Doesn't Work");
+          }
+      }
     );
-} );
 </script>
 {% endblock js %}
