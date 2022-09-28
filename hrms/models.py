@@ -69,9 +69,9 @@ class Attendance (models.Model):
     status = models.CharField(choices=STATUS, max_length=15 )
     staff = models.ForeignKey(Employee, on_delete=models.CASCADE)
 
-    # def save(self,*args, **kwargs):
-    #     self.first_in = timezone.localtime()
-    #     super(Attendance,self).save(*args, **kwargs)
+    def save(self,*args, **kwargs):
+        self.first_in = timezone.localtime()
+        super(Attendance,self).save(*args, **kwargs)
     
     def __str__(self):
         return 'Attendance -> '+str(self.date) + ' -> ' + str(self.staff)
