@@ -76,7 +76,7 @@
                 <div class="card-body">
                   <h4 class="card-title">New Employees</h4>
                   <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table id="employee_table" class="table table-bordered">
                       <thead>
                         <tr>
                           
@@ -108,7 +108,10 @@
                             {{worker.last_name}}
                           </td>
                           <td>
-                            {{worker.mobile}} &emsp;<span><a href="{% url 'hrms:employee_view' pk=worker.id %}" class="btn btn-sm btn-info">View</a></span>
+                            {{worker.mobile}} &emsp;
+                          </td>
+                          <td>
+                            <span><a href="{% url 'hrms:employee_view' pk=worker.id %}" class="btn btn-sm btn-info">View</a></span>
                           </td>
                         </tr>
                       {% endfor %}                   
@@ -126,3 +129,20 @@
           </div>
         </div>
         {% endblock content %}
+{% block js %} <-- page specific scripts
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+    $('#employee_table').DataTable( {
+        "aaSorting": [[1,'asc']],
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    }
+    );
+} );
+</script>
+{% endblock js %}
