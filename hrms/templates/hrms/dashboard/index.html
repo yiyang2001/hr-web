@@ -1,6 +1,7 @@
 {% extends 'hrms/layout.html' %}
 {% load static %}
 {% block title %} Dashboard | ITSC-HRMS {% endblock title %}
+<link rel="stylesheet" href="{% static 'employee_index.css' %}">
       <!--  MAIN BODY START HERE -->
           {% block content %}
 
@@ -129,30 +130,3 @@
           </div>
         </div>
         {% endblock content %}
-{% block js %} <-- page specific scripts
-<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-      $('#employee_table').DataTable( {
-          "aaSorting": [[1,'asc']],
-          dom: 'Bfrtip',
-          buttons: [
-              'copy', 'csv', 'excel', 'pdf', 'print'
-          ]
-      }
-            <!-- Added this script to see if the page would recognize the items within block -->
-      <script>
-      window.onload = function() {
-          if (window.jQuery) {
-              // jQuery is loaded
-              alert("Yeah!");
-          } else {
-              // jQuery is not loaded
-              alert("Doesn't Work");
-          }
-      }
-    );
-</script>
-{% endblock js %}
