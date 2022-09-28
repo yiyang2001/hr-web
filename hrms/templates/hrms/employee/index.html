@@ -22,7 +22,7 @@
                   <h4 class="card-title">All Employees<a href="{% url 'hrms:employee_new' %}" class="btn btn-sm btn-success mb-3 float-right">Add New +</a></h4>
                     
                   <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="employee_all">
                       <thead>
                         <tr>
                           <th>
@@ -84,7 +84,7 @@
                         {% endfor %}
                       </tbody>
                     </table>
-
+                </div>
                     {% if is_paginated %}
                       <nav aria-label="Page navigation example" class='mt-4'>
                         <ul class="pagination">
@@ -118,13 +118,20 @@
               toastr.success('{{message}}')
             {% endfor %}
           {% endif %}
-          $('#employees123').DataTable({
-             "aaSorting": [[1,'asc']],
-             dom: 'Bfrtip',
-             buttons: [
-                 'copy', 'csv', 'excel', 'pdf', 'print'
-             ]
-          });
         </script>
         {% endblock noty %}
         {% endblock content %}
+      {% block script %}
+      <script type="text/javascript">
+          $(document).ready( function () {
+          $('#employee_all').DataTable({
+              "aaSorting": [[1,'asc']],
+              dom: 'Bfrtip',
+              buttons: [
+                  'copy', 'csv', 'excel', 'pdf', 'print'
+              ]
+          });
+      } );
+      </script>
+
+      {% endblock script %}
