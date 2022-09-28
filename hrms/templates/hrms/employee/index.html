@@ -2,7 +2,9 @@
 {% load static %}
 {% block title %} All Employees | ITSC-HRMS {% endblock title %}
       <!--  MAIN BODY START HERE -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.css"/>
+
+
+          {% block content %}
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/datatables.min.js"></script>
         <script>
             $('#employees123').DataTable({
@@ -13,8 +15,6 @@
             ]
           });
         </script>
-          {% block content %}
-
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="row">
