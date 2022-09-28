@@ -7785,7 +7785,11 @@ mark,
 
 .img-fluid {
   max-width: 100%;
-  height: auto; }
+  height: auto;
+    .img-fluid:hover {
+    transform: scale(3);
+    }
+  }
 
 .img-thumbnail {
   padding: 0.25rem;
